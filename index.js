@@ -10,20 +10,70 @@ var options = {
   delimiter: ',', // optional
   quote: '"', // optional
 };
+let rowMonth = '';
+let rowAverage = ''
+let rowFive =''
+let rowSix = ''
+let rowSeven = ''
+let rowEight = ''
+let rowNine = ''
+let rowTen = ''
+let rowEleven = ''
+let rowTwelve = ''
+let rowThreeth = ''
+let rowFourth = ''
+let rowFifth = ''
+
 var csvObject = csvjson.toObject(data, options);
 
-var table = new AsciiTable().fromJSON({
+for (i=0; i< csvObject.length; i++) {
+    // csvObject[i][2005],csvObject[i][2006],csvObject[i][2007],csvObject[i][2008],csvObject[i][2009],csvObject[i][2010],csvObject[i][2011],csvObject[i][2012],csvObject[i][2013],csvObject[i][2014],csvObject[i][2015],csvObject[i].Month, csvObject[i].Average
+    rowMonth = csvObject[i].Month + ' '+ ',' + rowMonth;
+    rowAverage = csvObject[i].Average + ' ' + rowAverage;
+    rowFive= csvObject[i][2005] + ' ' + rowFive;
+    rowSix = csvObject[i][2006] + ' ' + rowSix;
+    rowSeven = csvObject[i][2007] + ' ' + rowSeven;
+    rowEight = csvObject[i][2008] + ' ' + rowEight;
+    rowNine = csvObject[i][2009] + ' ' + rowNine;
+    rowTen = csvObject[i][2010] + ' ' + rowTen;
+    rowEleven = csvObject[i][2011] + ' ' + rowEleven;
+    rowTwelve = csvObject[i][2012] + ' ' + rowTwelve;
+    rowThreeth = csvObject[i][2013] + ' ' + rowThreeth;
+    rowFourth = csvObject[i][2014] + ' ' + rowFourth;
+    rowFifth = csvObject[i][2015] + ' ' + rowFifth;
+
+
+console.log (rowMonth)
+    var table = new AsciiTable()
+    table
+      .setHeading(2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2015, 'Month', 'Average')
+      .addRow(rowFive)
+      .addRow(rowSix)
+      .addRow(rowSeven)
+      .addRow(rowEight)
+      .addRow(rowNine)
+      .addRow(rowTen)
+      .addRow(rowEleven)
+      .addRow(rowTwelve)
+      .addRow(rowThreeth)
+      .addRow(rowFourth)
+      .addRow(rowFifth)
+      .addRow(rowMonth)
+      .addRow(rowAverage)
+
+console.log(table.toString())
+}
+/*var table = new AsciiTable().fromJSON({
   title: 'Calendar',
   heading: [2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2015, 'Month', 'Average' ],
-  rows: [
-    [csvObject[0][2005],csvObject[0][2006],csvObject[0][2007],csvObject[0][2008],csvObject[0][2009],csvObject[0][2010],csvObject[0][2011],csvObject[0][2012],csvObject[0][2013], csvObject[0][2014], csvObject[0][2015], csvObject[0].Month, csvObject[0].Average,],
-    [csvObject[1][2005],csvObject[1][2006],csvObject[1][2007],csvObject[1][2008],csvObject[1][2009],csvObject[1][2010],csvObject[1][2011],csvObject[1][2012],csvObject[1][2013], csvObject[1][2014], csvObject[1][2015], csvObject[1].Month, csvObject[1].Average,],
-    [csvObject[2][2005],csvObject[2][2006],csvObject[2][2007],csvObject[2][2008],csvObject[2][2009],csvObject[2][2010],csvObject[2][2011],csvObject[2][2012],csvObject[2][2013], csvObject[2][2014], csvObject[2][2015], csvObject[2].Month, csvObject[2].Average,],
-    [csvObject[3][2005],csvObject[3][2006],csvObject[3][2007],csvObject[3][2008],csvObject[3][2009],csvObject[3][2010],csvObject[3][2011],csvObject[3][2012],csvObject[3][2013], csvObject[3][2014], csvObject[3][2015], csvObject[3].Month, csvObject[3].Average,],
-    [csvObject[4][2005],csvObject[4][2006],csvObject[4][2007],csvObject[4][2008],csvObject[4][2009],csvObject[4][2010],csvObject[4][2011],csvObject[4][2012],csvObject[4][2013], csvObject[4][2014], csvObject[4][2015], csvObject[4].Month, csvObject[4].Average,],
-    [csvObject[5][2005],csvObject[5][2006],csvObject[5][2007],csvObject[5][2008],csvObject[5][2009],csvObject[5][2010],csvObject[5][2011],csvObject[5][2012],csvObject[5][2013], csvObject[5][2014], csvObject[5][2015], csvObject[5].Month, csvObject[5].Average,],
-    [csvObject[6][2005],csvObject[6][2006],csvObject[6][2007],csvObject[6][2008],csvObject[6][2009],csvObject[6][2010],csvObject[6][2011],csvObject[6][2012],csvObject[6][2013], csvObject[6][2014], csvObject[6][2015], csvObject[6].Month, csvObject[6].Average,],
-    [csvObject[7][2005],csvObject[7][2006],csvObject[7][2007],csvObject[7][2008],csvObject[7][2009],csvObject[7][2010],csvObject[7][2011],csvObject[7][2012],csvObject[7][2013], csvObject[7][2014], csvObject[7][2015], csvObject[7].Month, csvObject[7].Average,],
-  ]
+
+  rows:
+    [
+    [csvObject[i][2005],csvObject[i][2006],csvObject[i][2007],csvObject[i][2008],csvObject[i][2009],csvObject[i][2010],csvObject[i][2011],csvObject[i][2012],csvObject[i][2013], csvObject[i][2014], csvObject[i][2015], csvObject[i].Month, csvObject[i].Average,],
+
+    ]
+
 });
-console.log(table.toString());
+
+console.log(table.toString());*/
+
